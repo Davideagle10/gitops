@@ -17,3 +17,8 @@ module "eks" {
   public_subnet_ids  = module.networking.public_subnet_ids
   private_subnet_ids = module.networking.private_subnet_ids
 }
+
+module "argocd" {
+  source     = "./argocd"
+  depends_on = [module.eks]
+}

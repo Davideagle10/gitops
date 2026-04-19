@@ -32,3 +32,8 @@ output "node_group_role_arn" {
   description = "ARN IAM role "
   value       = aws_iam_role.node_group.arn
 }
+
+output "cluster_token" {
+  value     = data.aws_eks_cluster_auth.main.token
+  sensitive = true
+}

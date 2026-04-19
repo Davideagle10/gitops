@@ -90,3 +90,7 @@ resource "aws_eks_node_group" "main" {
     Owner = var.owner
   }
 }
+
+data "aws_eks_cluster_auth" "main" {
+  name = aws_eks_cluster.main.name
+}
