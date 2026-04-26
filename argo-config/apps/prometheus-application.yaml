@@ -6,12 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/Davideagle10/gitops
-    targetRevision: main
-    path: apps/prometheus
-    helm:
-      valueFiles:
-        - values.yaml
+    chart: kube-prometheus-stack
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 69.3.2        
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
@@ -19,3 +16,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true      
